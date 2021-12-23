@@ -1,0 +1,239 @@
+<div class="dashboard-cont">
+    {{!-- <img class="bg-img" src="/images/pat.jpeg" alt=""> --}}
+    <h4>Responses</h4>
+    <div class="res-cont">
+        <div class="row">
+            <div class="chart col">
+                <canvas id="quality" width="50px" height="50px"></canvas>
+            </div>
+            <div class="chart col">
+                <canvas id="service" width="50px" height="50px"></canvas>
+            </div>
+            <div class="chart col">
+                <canvas id="taste" width="50px" height="50px"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart col">
+                <canvas id="consistency" width="50px" height="50px"></canvas>
+            </div>
+            <div class="chart col">
+                <canvas id="orderAgain" width="50px" height="50px"></canvas>
+            </div>
+            <div class="col">
+                <canvas id="" width="50px" height="50px"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+<style>
+  
+    .res-cont {
+        width: 80vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .bg-img {
+        opacity: 0.3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: max-content;
+        z-index: -10;
+    }
+    .chart {
+        width: 10vw;
+        margin: 15px;
+        padding: 20px;
+    }
+</style>
+<script>
+const quality = document.getElementById('quality').getContext('2d');
+const qualityChart = new Chart(quality, {
+    type: 'doughnut',
+    data: {
+        labels: ['Poor', 'Bad', 'Average', 'Good', 'Excellent'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{percentage.qualityPoor}}, {{percentage.qualityBad}}, {{percentage.qualityAverage}}, {{percentage.qualityGood}}, {{percentage.qualityExcellent}}],
+            backgroundColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Quality & Taste'
+      }
+    }
+  },
+})
+const service = document.getElementById('service').getContext('2d');
+const serviceChart = new Chart(service, {
+    type: 'doughnut',
+    data: {
+        labels: ['Poor', 'Bad', 'Average', 'Good', 'Excellent'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{percentage.servicePoor}}, {{percentage.serviceBad}}, {{percentage.serviceAverage}}, {{percentage.serviceGood}}, {{percentage.serviceExcellent}}],
+            backgroundColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Service'
+      }
+    }
+  },
+})
+const taste = document.getElementById('taste').getContext('2d');
+const tasteChart = new Chart(taste, {
+    type: 'doughnut',
+    data: {
+        labels: ['Poor', 'Bad', 'Average', 'Good', 'Excellent'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{percentage.tastePoor}}, {{percentage.tasteBad}}, {{percentage.tasteAverage}}, {{percentage.tasteGood}}, {{percentage.tasteExcellent}}],
+            backgroundColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Packing'
+      }
+    }
+  },
+})
+const consistency = document.getElementById('consistency').getContext('2d');
+const consistencyChart = new Chart(consistency, {
+    type: 'doughnut',
+    data: {
+        labels: ['Poor', 'Bad', 'Average', 'Good', 'Excellent'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{percentage.consistencyPoor}}, {{percentage.consistencyBad}}, {{percentage.consistencyAverage}}, {{percentage.consistencyGood}}, {{percentage.consistencyExcellent}}],
+            backgroundColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderColor: [
+                'rgba(235,55,50, 1)',
+                'rgba(244,159,63, 1)',
+                'rgba(254,241,80, 1)',
+                'rgba(189,214,64, 1)',
+                'rgba(82,180,75, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Consistency'
+      }
+    }
+  },
+})
+const orderAgain = document.getElementById('orderAgain').getContext('2d');
+const orderAgainChart = new Chart(orderAgain, {
+    type: 'doughnut',
+    data: {
+        labels: ['Yes', 'No'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{percentage.orderAgainYes}}, {{percentage.orderAgainNo}}],
+            backgroundColor: [
+                'rgba(82,180,75, 1)',
+                'rgba(235,55,50, 1)',
+            ],
+            borderColor: [
+                'rgba(82,180,75, 1)',
+                'rgba(235,55,50, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Order Again'
+      }
+    }
+  },
+})
+</script>

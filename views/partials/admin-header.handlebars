@@ -1,0 +1,133 @@
+{{#if adminLoggedIn}}
+
+<section>
+    <p class="logo"><img src="/images/logo.png" alt=""></p>
+    
+    <ul id="menu">
+        <li><a href="/admin">Responses</a></li>
+        <li><a href="/admin/feedback">Feedbacks</a></li>
+    </ul>
+
+    <div style="margin-left:18%;height:100%;">
+        <ol>
+            <li><a class="active" href="/admin/logout">Logout</a></li>
+        </ol>
+        <div class="admin-body">
+            {{{body}}}
+
+        </div>
+
+    </div>
+
+</section>
+{{else}}
+{{{body}}}
+{{/if}}
+
+<style>
+    section {
+        font-family: 'Bakbak One', cursive; 
+    }
+    .admin-body {
+        padding-top: 80px;
+        padding-right: 30px;
+        padding-left: 30px;
+        height: 100%;
+        background-image: url('/images/pattern.jpeg');
+        background-size: cover;
+
+    }
+    #menu {
+        margin-top: 50px;
+    }
+    .logo {
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+    }
+    .logo img {
+        width: 100px;
+    }
+    ul {
+        list-style-type: none;
+        margin-top: 0;
+        padding: 0;
+        width: 18%;
+        background-color: #ffffff;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+
+    }
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    ul li:first-child {
+        margin-top: 80px;
+    }
+
+    li.active {
+        background-color: #F9CC48;
+        color: white;
+    }
+
+    li.active a {
+        color: white;
+    }
+
+    li:hover:not(.active) {
+        background-color: #F9CC48;
+
+    }
+
+    li a:hover {
+        color: black;
+    }
+
+    ol {
+        list-style-type: none;
+        margin: 0;
+        padding-top: 10;
+        position: fixed;
+        width: 82vw;
+        overflow: hidden;
+        background-color: #ffffff;
+        box-shadow: 0 1px 1px 0 rgba(110, 110, 110, 0.2), 0 1px 1px 0 rgba(168, 166, 166, 0.19);
+
+    }
+
+    ol li {
+        float: right;
+    }
+
+    ol li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 46px;
+        text-decoration: none;
+    }
+
+    ol li a:hover {
+        background-color: #F9CC48;
+    }
+</style>
+
+<script>
+    $("#menu li a").click(function () {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+    });
+</script>
+

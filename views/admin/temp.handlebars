@@ -1,0 +1,64 @@
+<div class="login-screen">
+    <div class="login-container">
+        <img src="/images/logo.png" alt="">
+        <form action="/admin/login" method="POST">
+            {{#if loginErr}}
+            <p class="alert alert-danger">Invalid username or password</p>
+            {{/if}}
+            <label>Email Address</label><br>
+            <input type="email" class="" name="Email" placeholder="Enter Email"><br>
+            <label>Password</label><br>
+            <input type="password" class="" name="Password" placeholder="Enter Password">
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    .login-screen {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .login-container {
+        width: 30vw;
+        padding: 40px 20px;
+        border-radius: 15px;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(119, 117, 117, 0.19);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-container input {
+        width: 90%;
+    }
+    .login-container img {
+        width: 40%;
+    }
+    .login-button {
+        width: 90%;
+        border-radius: 5px;
+        background-color: rgb(252, 215, 6);
+        border: 0px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bolder;
+        padding: 10px 0;
+        margin-top: 10px;
+
+    }
+    .login-button:hover {
+        background-color: rgb(238, 208, 41);
+    }
+    label {
+        margin-top: 10px;
+    }
+
+    
+    
+</style>
